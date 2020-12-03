@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: gulimall-gateway
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 49.232.212.48:8848
