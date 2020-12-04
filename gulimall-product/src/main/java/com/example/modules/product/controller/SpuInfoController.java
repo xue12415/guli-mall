@@ -1,20 +1,20 @@
 package com.example.modules.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.example.common.utils.PageUtils;
+import com.example.common.utils.R;
+import com.example.modules.product.entity.SpuInfoEntity;
+import com.example.modules.product.service.SpuInfoService;
+import com.example.modules.product.vo.SpuSaveVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.modules.product.entity.SpuInfoEntity;
-import com.example.modules.product.service.SpuInfoService;
-import com.example.common.utils.PageUtils;
-import com.example.common.utils.R;
+import java.util.Arrays;
+import java.util.Map;
+
+//import org.apache.shiro.authz.annotation.RequiresPermissions;
 
 
 
@@ -44,26 +44,18 @@ public class SpuInfoController {
 
 
     /**
-     * 信息
-     */
-    @RequestMapping("/info/{id}")
-    //@RequiresPermissions("product:spuinfo:info")
-    public R info(@PathVariable("id") Long id){
-		SpuInfoEntity spuInfo = spuInfoService.getById(id);
-
-        return R.ok().put("spuInfo", spuInfo);
-    }
-
-    /**
      * 保存
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:spuinfo:save")
-    public R save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    public R save(@RequestBody SpuSaveVo vo){
+        //spuInfoService.save(spuInfo);
+
+        spuInfoService.savesupInfo(vo);
 
         return R.ok();
     }
+
 
     /**
      * 修改
